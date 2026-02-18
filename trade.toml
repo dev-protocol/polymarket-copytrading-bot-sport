@@ -1,0 +1,40 @@
+# CLOB API base URL (mainnet)
+clob_host = "https://clob.polymarket.com"
+
+chain_id = 137
+
+# When true, log trades but do not execute
+simulation = true
+
+[copy]
+# Single address: websocket. Multiple: polling positions API.
+target_address = [
+    "0xe90bec87d9ef430f27f9dcfe72c34b76967d5da2",
+    "0xc2e7800b5af46e6093872b177b7a5e7f0563be51"
+]
+revert_trade = true
+# Multiply copied trade size by this (1.0 = same size)
+size_multiplier = 1.0
+
+# Polling interval (sec) when using multiple targets
+poll_interval_sec = 30
+
+[exit]
+# Take profit at this % gain (0 = disabled)
+take_profit = 0
+# Stop loss at this % loss (0 = disabled)
+stop_loss = 0
+# Trailing stop at this % (0 = disabled)
+trailing_stop = 0
+
+[filter]
+# Max USD to spend per copied trade (0 = no limit)
+buy_amount_limit_in_usd = 0
+
+# Only copy trades made within the last N seconds (0 = no filter)
+entry_trade_sec = 0
+
+# Skip if market resolves within N seconds (0 = no filter)
+trade_sec_from_resolve = 0
+
+

@@ -1,0 +1,60 @@
+# Polymarket Copytrading Bot
+
+Copies trades from one or more leader addresses on Polymarket. Config in `trade.toml`, secrets in `.env`.
+
+## Setup
+
+```bash
+cp .env.example .env
+# Edit .env: WALLET_PRIVATE_KEY, PROXY_WALLET_ADDRESS (if Magic), SIGNATURE_TYPE
+npm install
+```
+
+## Config: trade.toml
+
+| Key | Description |
+|-----|-------------|
+| `clob_host` | CLOB API base URL (default mainnet) |
+| `chain_id` | 137 = Polygon mainnet |
+| `simulation` | `true` = log only, no orders |
+| `[copy]` | |
+| `target_address` | One or more leader addresses (single = websocket; multiple = polling) |
+| `revert_trade` | `true` = copy BUY and SELL; `false` = BUY only |
+| `size_multiplier` | Multiply copied size (1.0 = same) |
+| `poll_interval_sec` | Polling interval when using multiple targets |
+| `[exit]` | |
+| `take_profit` | Sell at this % gain (0 = off) |
+| `stop_loss` | Sell at this % loss (0 = off) |
+| `trailing_stop` | Sell if price drops this % from high (0 = off) |
+| `[filter]` | |
+| `buy_amount_limit_in_usd` | Max USD per copied trade (0 = no limit) |
+| `entry_trade_sec` | Only copy if leader traded within last N sec (0 = off) |
+| `trade_sec_from_resolve` | Skip if market resolves within N sec (0 = off) |
+
+## Run
+
+```bash
+npm run dev    # tsx src/index.ts
+npm run build && npm start
+```
+
+## Project layout
+
+```
+src/
+  index.ts       # Entry: load config, start copy + optional exit loop
+  config/        # Load trade.toml + .env → AppConfig
+  client/        # CLOB client (ethers + API key)
+  trading/       # copyTrade(): place order from LeaderTrade
+  polling/       # Multi-target: poll positions API, diff → trades
+  realtime/     # Single target: websocket activity → trades
+  filter/       # shouldCopyTrade(): revert_trade, entry_trade_sec, trade_sec_from_resolve
+  exit/          # recordEntry(), runExitLoop(): take_profit, stop_loss, trailing_stop
+  types/         # AppConfig, LeaderTrade, etc.
+```
+
+## Env
+
+- `WALLET_PRIVATE_KEY` – EOA or Magic export
+- `PROXY_WALLET_ADDRESS` – Polymarket profile (required for Magic; optional EOA)
+- `SIGNATURE_TYPE` – 0 = EOA, 1 = Magic/proxy, 2 = Gnosis Safe
