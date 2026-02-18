@@ -1,10 +1,7 @@
 import { loadConfig } from "./config";
-import { createClient } from "./client";
-import { runActivityStream, logTrade } from "./realtime";
-import { runPositionPolling } from "./polling";
-import { copyTrade } from "./trading";
-import { shouldCopyTrade } from "./filter";
-import { recordEntry, runExitLoop } from "./exit";
+import { createClient } from "./config/client";
+import { runActivityStream, logTrade, runPositionPolling } from "./realtime";
+import { copyTrade, shouldCopyTrade, recordEntry, runExitLoop } from "./trading";
 
 async function run() {
   const config = loadConfig();
@@ -34,7 +31,7 @@ async function run() {
     runActivityStream(client, config);
   } else {
     console.log(config.simulationMode ? "Simulation" : "Polling", `| ${targets.length} targets`);
-    runPositionPolling(client, config, (trade, fromUser) => {
+    runPositionPolling(config, (trade, fromUser) => {
       if (!shouldCopyTrade(config, trade)) return;
       if (config.simulationMode) {
         logTrade("SIM", trade, `from ${fromUser.slice(0, 10)}… skipped`);

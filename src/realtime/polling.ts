@@ -1,4 +1,5 @@
-const DATA_API = "https://data-api.polymarket.com";
+import { DATA_API } from "../constant";
+import { AppConfig, LeaderTrade } from "../types";
 
 interface Position {
   asset: string;
@@ -39,24 +40,34 @@ function logPositions(user: string, curr: PositionSnapshot, tag: "INIT" | "POS")
   console.log(entries.length ? `${prefix}\n${entries.join("\n")}` : `${prefix} | (none)`);
 }
 
+const POSITIONS_PAGE_SIZE = 500;
+const POSITIONS_MAX_OFFSET = 10_000;
+
 async function fetchPositions(user: string): Promise<Position[]> {
-  const url = `${DATA_API}/positions?user=${encodeURIComponent(user)}&limit=500`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`positions ${res.status}`);
-  const data = (await res.json()) as Position[];
-  return data.filter(
-    (p) =>
-      p.asset &&
-      p.size > 0 &&
-      (p.curPrice ?? 0) > 0 &&
-      !isExpired(p.endDate)
-  );
+  const all: Position[] = [];
+  let offset = 0;
+  while (offset <= POSITIONS_MAX_OFFSET) {
+    const url = `${DATA_API}/positions?user=${encodeURIComponent(user)}&limit=${POSITIONS_PAGE_SIZE}&offset=${offset}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`positions ${res.status}`);
+    const page = (await res.json()) as Position[];
+    const valid = page.filter(
+      (p) =>
+        p.asset &&
+        p.size > 0 &&
+        (p.curPrice ?? 0) > 0 &&
+        !isExpired(p.endDate)
+    );
+    all.push(...valid);
+    if (page.length < POSITIONS_PAGE_SIZE) break;
+    offset += POSITIONS_PAGE_SIZE;
+  }
+  return all;
 }
 
 export function runPositionPolling(
-  client: import("@polymarket/clob-client").ClobClient | null,
-  config: import("../types").AppConfig,
-  onTrade: (trade: import("../types").LeaderTrade, fromUser: string) => void
+  config: AppConfig,
+  onTrade: (trade: LeaderTrade, fromUser: string) => void
 ): void {
   const targets = config.copy.targetAddresses.map((a) => a.toLowerCase());
   const prev: Record<string, PositionSnapshot> = {};
@@ -89,7 +100,7 @@ export function runPositionPolling(
           const s = pprev[asset]?.size ?? 0;
           const delta = c.size - s;
           if (delta > 0) {
-            const trade: import("../types").LeaderTrade = {
+            const trade: LeaderTrade = {
               id: `${user}-${asset}-${Date.now()}`,
               asset_id: asset,
               market: c.conditionId,
@@ -103,7 +114,7 @@ export function runPositionPolling(
             };
             onTrade(trade, user);
           } else if (delta < 0 && s > 0) {
-            const trade: import("../types").LeaderTrade = {
+            const trade: LeaderTrade = {
               id: `${user}-${asset}-${Date.now()}`,
               asset_id: asset,
               market: c.conditionId,
@@ -121,7 +132,7 @@ export function runPositionPolling(
         for (const asset of Object.keys(pprev)) {
           if (!(asset in curr)) {
             const s = pprev[asset];
-            const trade: import("../types").LeaderTrade = {
+            const trade: LeaderTrade = {
               id: `${user}-${asset}-${Date.now()}`,
               asset_id: asset,
               market: s.conditionId,

@@ -2,6 +2,22 @@
 
 Copies trades from one or more leader addresses on Polymarket. Config in `trade.toml`, secrets in `.env`.
 
+# Market Types
+
+- Polymarket includes Politics, Sports, Crypto, Economic, Geopolitical, Entertainment, and Experimental markets.
+- Politics & Macro markets are longer-term and news-driven, suitable for medium-term copy strategies.
+- Sports & Crypto markets are fast-moving and require quick execution (websocket mode recommended).
+- Entertainment markets tend to be slower and lower volatility.
+- Experimental / low-liquidity markets carry higher slippage risk and should use size limits.
+
+Adjust filters like entry_trade_sec, trade_sec_from_resolve, take_profit, and buy_amount_limit_in_usd based on the market’s volatility and duration.
+
+NOTE: Based on experience, crypto prediction markets can be highly volatile and risky, especially due to rapid price swings and fast position flipping by large traders.
+
+For this reason, this bot is designed to copy trades across all market categories (Politics, Sports, Macro, Entertainment, etc.), rather than focusing only on crypto markets. Diversifying across different market types helps reduce concentration risk and smooth overall performance.
+
+Consulting With Builder: [xstacks](https://t.me/x_stacks)
+
 ## Setup
 
 ```bash
@@ -35,7 +51,6 @@ npm install
 
 ```bash
 npm run dev    # tsx src/index.ts
-npm run build && npm start
 ```
 
 ## Project layout
