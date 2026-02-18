@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    // Module settings
+    "module": "CommonJS", // <-- Use CommonJS to support require()
+    "moduleResolution": "node", // Node-style module resolution
+    "target": "esnext",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    // Output
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    // Type checking
+    "strict": false, // <-- disable strict mode
+    "noUncheckedIndexedAccess": false,
+    "exactOptionalPropertyTypes": false,
+    // Other recommended options
+    "jsx": "react-jsx",
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["dist", "node_modules", "test", "ui"]
+}

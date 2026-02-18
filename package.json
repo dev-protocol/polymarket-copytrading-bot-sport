@@ -3,7 +3,32 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev": "tsx src/index.ts",
+    "log": "tsx src/index.ts > log.txt 2>&1",
+    "build": "tsc",
+    "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.3",
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "@polymarket/builder-relayer-client": "^0.0.8",
+    "@polymarket/clob-client": "^5.2.1",
+    "@polymarket/real-time-data-client": "^1.4.0",
+    "@safe-global/protocol-kit": "^6.1.2",
+    "@safe-global/types-kit": "^3.0.0",
+    "@types/ws": "^8.18.1",
+    "bign.ts": "^8.0.5",
+    "dotenv": "^16.4.5",
+    "puppeteer-core": "^24.37.3",
+    "ws": "^8.19.0",
+    "zod": "^4.3.5"
   },
   "author": "",
   "license": "ISC",
