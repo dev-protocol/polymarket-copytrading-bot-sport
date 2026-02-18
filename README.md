@@ -16,8 +16,6 @@ NOTE: Based on experience, crypto prediction markets can be highly volatile and 
 
 For this reason, this bot is designed to copy trades across all market categories (Politics, Sports, Macro, Entertainment, etc.), rather than focusing only on crypto markets. Diversifying across different market types helps reduce concentration risk and smooth overall performance.
 
-Consulting With Builder: [xstacks](https://t.me/x_stacks)
-
 ## Setup
 
 ```bash
@@ -73,3 +71,26 @@ src/
 - `WALLET_PRIVATE_KEY` – EOA or Magic export
 - `PROXY_WALLET_ADDRESS` – Polymarket profile (required for Magic; optional EOA)
 - `SIGNATURE_TYPE` – 0 = EOA, 1 = Magic/proxy, 2 = Gnosis Safe
+
+## Journey of Builder - [xstacks](https://t.me/x_stacks)
+
+While many traders focus heavily on crypto prediction markets, I noticed that they can be extremely volatile and unpredictable in short timeframes. Rapid price swings, aggressive position flipping, and sudden liquidity shifts make consistent automation difficult.
+
+Because of this, I shifted my focus toward non-crypto markets — such as politics, macroeconomic events, sports, and major world events — where price movements tend to be more structured and event-driven rather than purely momentum-based.
+
+I began developing this strategy in early February 2026, spending about two weeks testing and refining it. Instead of chasing high volatility, the goal was consistency and risk control.
+
+After running simulations on historical market data and testing live with a small balance, the strategy showed steady results — averaging around $50–120 per day from a $200 balance, depending on market conditions.
+
+What I found is that non-crypto markets often:
+
+- Move more gradually
+- React to scheduled events
+- Offer clearer sentiment shifts
+- Have less algorithmic noise compared to short-term crypto markets
+
+Rather than targeting a single category, the bot is designed to operate across multiple non-crypto markets, allowing diversification and reducing dependence on one asset class.
+
+The focus is not explosive gains, but stable performance and controlled risk. The system is still evolving, and I continue to refine filters, timing logic, and position sizing to improve long-term consistency.
+
+This is a long-term strategy — built around discipline, diversification, and steady growth rather than hype.
