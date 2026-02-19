@@ -71,12 +71,12 @@ npm run dev    # tsx src/index.ts
 
 |Address|Profile|Pnl|
 |-|-|-|
-|0x6031b6eed1c97e853c6e0f03ad3ce3529351f96d|@gabagool22|<img width="800" src="https://github.com/user-attachments/assets/ef04d657-da3f-4b5a-aeed-b99f2c264df8" />|
-|0x63ce342161250d705dc0b16df89036c8e5f9ba9a|@0x8dxd|<img width="800" src="https://github.com/user-attachments/assets/e032f4e9-001a-4dd6-b3b5-6d983167f92d" />|
-|0xa61ef8773ec2e821962306ca87d4b57e39ff0abd|@risk-manager|<img width="800" src="https://github.com/user-attachments/assets/6ca49607-7615-4a0c-9786-54400971ee27" />|
-|0x781a48229e2c08e20d1eaad90ef73710988c96e6|@100USDollars|<img width="800" src="https://github.com/user-attachments/assets/380debcb-dc09-466f-b7cd-ca2552605eb7" />|
-|0x0ac97e4f5c542cd98c226ae8e1736ae78b489641|@7thStaircase|<img width="800" src="https://github.com/user-attachments/assets/c638d830-a472-4035-99ca-c33c72c3aa23" />|
-|0x1d0034134e339a309700ff2d34e99fa2d48b0313|@0x1d0034134e|<img width="800" src="https://github.com/user-attachments/assets/2e07c2bf-2ac6-42d2-b319-356bfc0def91" />|
-|0xa9878e59934ab507f9039bcb917c1bae0451141d|@ilovecircle|<img width="800" src="https://github.com/user-attachments/assets/b8342802-62d3-461d-8593-8f980178bdfe" />|
-|0xd0d6053c3c37e727402d84c14069780d360993aa|@k9Q2mX4L8A7ZP3R|<img width="800" src="https://github.com/user-attachments/assets/e3eaf5bb-b6d3-47fd-bf96-93d13bcd4442" />|
-|0x594edB9112f526Fa6A80b8F858A6379C8A2c1C11|@0x594...1C11|<img width="800" src="https://github.com/user-attachments/assets/d868f76d-74d9-405d-b168-7e8d5b27c083" />|
+|0x6031b6eed1c97e853c6e0f03ad3ce3529351f96d|@gabagool22|<img width="1200" src="https://github.com/user-attachments/assets/ef04d657-da3f-4b5a-aeed-b99f2c264df8" />|
+|0x63ce342161250d705dc0b16df89036c8e5f9ba9a|@0x8dxd|<img width="1200" src="https://github.com/user-attachments/assets/e032f4e9-001a-4dd6-b3b5-6d983167f92d" />|
+|0xa61ef8773ec2e821962306ca87d4b57e39ff0abd|@risk-manager|<img width="1200" src="https://github.com/user-attachments/assets/6ca49607-7615-4a0c-9786-54400971ee27" />|
+|0x781a48229e2c08e20d1eaad90ef73710988c96e6|@100USDollars|<img width="1200" src="https://github.com/user-attachments/assets/380debcb-dc09-466f-b7cd-ca2552605eb7" />|
+|0x0ac97e4f5c542cd98c226ae8e1736ae78b489641|@7thStaircase|<img width="1200" src="https://github.com/user-attachments/assets/c638d830-a472-4035-99ca-c33c72c3aa23" />|
+|0x1d0034134e339a309700ff2d34e99fa2d48b0313|@0x1d0034134e|<img width="1200" src="https://github.com/user-attachments/assets/2e07c2bf-2ac6-42d2-b319-356bfc0def91" />|
+|0xa9878e59934ab507f9039bcb917c1bae0451141d|@ilovecircle|<img width="1200" src="https://github.com/user-attachments/assets/b8342802-62d3-461d-8593-8f980178bdfe" />|
+|0xd0d6053c3c37e727402d84c14069780d360993aa|@k9Q2mX4L8A7ZP3R|<img width="1200" src="https://github.com/user-attachments/assets/e3eaf5bb-b6d3-47fd-bf96-93d13bcd4442" />|
+|0x594edB9112f526Fa6A80b8F858A6379C8A2c1C11|@0x594...1C11|<img width="1200" src="https://github.com/user-attachments/assets/d868f76d-74d9-405d-b168-7e8d5b27c083" />|
