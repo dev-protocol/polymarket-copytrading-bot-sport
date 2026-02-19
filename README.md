@@ -79,4 +79,4 @@ npm run dev    # tsx src/index.ts
 |0x1d0034134e339a309700ff2d34e99fa2d48b0313|@0x1d0034134e|<img width="800" src="https://github.com/user-attachments/assets/2e07c2bf-2ac6-42d2-b319-356bfc0def91" />|
 |0xa9878e59934ab507f9039bcb917c1bae0451141d|@ilovecircle|<img width="800" src="https://github.com/user-attachments/assets/b8342802-62d3-461d-8593-8f980178bdfe" />|
 |0xd0d6053c3c37e727402d84c14069780d360993aa|@k9Q2mX4L8A7ZP3R|<img width="800" src="https://github.com/user-attachments/assets/e3eaf5bb-b6d3-47fd-bf96-93d13bcd4442" />|
-|0x594edB9112f526Fa6A80b8F858A6379C8A2c1C11|@0x594edB9112f526Fa6A80b8F858A6379C8A2c1C11|<img width="800" src="https://github.com/user-attachments/assets/d868f76d-74d9-405d-b168-7e8d5b27c083" />|
+|0x594edB9112f526Fa6A80b8F858A6379C8A2c1C11|@0x594...1C11|<img width="800" src="https://github.com/user-attachments/assets/d868f76d-74d9-405d-b168-7e8d5b27c083" />|
