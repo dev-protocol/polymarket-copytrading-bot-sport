@@ -5,6 +5,7 @@ Copies trades from one or more leader addresses on Polymarket. Config in `trade.
 ## Journey of Builder - [xstacks](https://t.me/x_stacks)
 
 While many traders focus heavily on crypto prediction markets, I noticed that they can be extremely volatile and unpredictable in short timeframes. Rapid price swings, aggressive position flipping, and sudden liquidity shifts make consistent automation difficult.
+
 When I started looking at Polymarket, I noticed one thing right away: markets can be unpredictable. Crypto markets, in particular, move fast—prices swing, positions flip, and liquidity can change in an instant, making consistent automation really tricky.
 
 Instead of limiting the bot to one type of market, I decided to build a system that could copy trades across all kinds of markets—Politics, Sports, Crypto, Economic events, and more. The idea was simple: follow experienced traders, act quickly, and stay flexible, no matter what market they’re in.
@@ -29,31 +30,20 @@ Adjust filters like entry_trade_sec, trade_sec_from_resolve, take_profit, and bu
 ## Setup
 
 ```bash
-cp .env.example .env
-# Edit .env: WALLET_PRIVATE_KEY, PROXY_WALLET_ADDRESS (if Magic), SIGNATURE_TYPE
+git clone https://github.com/dev-protocol/polymarket-copytrading-bot-sport.git
+cd polymarket-copytrading-bot-sport
 npm install
+# Edit .env: WALLET_PRIVATE_KEY, PROXY_WALLET_ADDRESS (if Magic), SIGNATURE_TYPE
+npm run dev
 ```
 
-## Config: trade.toml
+# Advanced Polymarket Trading Bot.
 
-| Key | Description |
-|-----|-------------|
-| `clob_host` | CLOB API base URL (default mainnet) |
-| `chain_id` | 137 = Polygon mainnet |
-| `simulation` | `true` = log only, no orders |
-| `[copy]` | |
-| `target_address` | One or more leader addresses (single = websocket; multiple = polling) |
-| `revert_trade` | `true` = copy BUY and SELL; `false` = BUY only |
-| `size_multiplier` | Multiply copied size (1.0 = same) |
-| `poll_interval_sec` | Polling interval when using multiple targets |
-| `[exit]` | |
-| `take_profit` | Sell at this % gain (0 = off) |
-| `stop_loss` | Sell at this % loss (0 = off) |
-| `trailing_stop` | Sell if price drops this % from high (0 = off) |
-| `[filter]` | |
-| `buy_amount_limit_in_usd` | Max USD per copied trade (0 = no limit) |
-| `entry_trade_sec` | Only copy if leader traded within last N sec (0 = off) |
-| `trade_sec_from_resolve` | Skip if market resolves within N sec (0 = off) |
+I have developed an advanced Polymarket trading bot, including a high-performance Rust-based copy trading system optimized for low-latency execution, as well as an AI agent trading bot built in TypeScript with automated strategy logic. 
+
+The architecture is designed for speed, efficiency, and scalability, making it suitable for serious traders looking to automate and optimize their activity in prediction markets. If you are interested in purchasing or learning more about the system and its capabilities, feel free to contact me directly.
+
+TG: [xstacks](https://t.me/x_stacks)
 
 ## Run
 

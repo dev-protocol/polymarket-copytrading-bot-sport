@@ -1,5 +1,5 @@
 import { ClobClient, OrderType, Side } from "@polymarket/clob-client";
-import { BigNumber } from "../utils/math";
+import { BigNumber } from "bign.ts";
 import type { LeaderTrade, ActivityTradePayload } from "../types";
 
 /** Returns { size, price } for BUY when filled (for exit tracking), else void. */

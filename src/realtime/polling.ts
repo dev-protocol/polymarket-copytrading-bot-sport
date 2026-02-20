@@ -32,12 +32,37 @@ export function fmtTime(): string {
   return new Date().toISOString();
 }
 
-function logPositions(user: string, curr: PositionSnapshot, tag: "INIT" | "POS"): void {
-  const prefix = `${fmtTime()} | ${tag} | ${user}`;
+function logPositionsAll(user: string, curr: PositionSnapshot): void {
+  const prefix = `${fmtTime()} | INIT | ${user}`;
   const entries = Object.entries(curr).map(
     ([asset, c]) => `  ${c.slug ?? asset.slice(0, 12) + "…"} ${c.outcome ?? "?"} size ${c.size} @ ${c.curPrice}`
   );
   console.log(entries.length ? `${prefix}\n${entries.join("\n")}` : `${prefix} | (none)`);
+}
+
+function logPositionChanges(user: string, curr: PositionSnapshot, prev: PositionSnapshot): void {
+  const prefix = `${fmtTime()} | POS | ${user}`;
+  const lines: string[] = [];
+  for (const [asset, c] of Object.entries(curr)) {
+    const p = prev[asset];
+    const prevSize = p?.size ?? 0;
+    const delta = c.size - prevSize;
+    if (delta !== 0) {
+      const sign = delta > 0 ? "+" : "";
+      const slug = c.slug ?? asset.slice(0, 12) + "…";
+      const outcome = c.outcome ?? "?";
+      lines.push(`  ${slug} ${outcome} ${sign}${delta} @ ${c.curPrice}`);
+    }
+  }
+  for (const asset of Object.keys(prev)) {
+    if (!(asset in curr)) {
+      const p = prev[asset];
+      const slug = p?.slug ?? asset.slice(0, 12) + "…";
+      const outcome = p?.outcome ?? "?";
+      lines.push(`  ${slug} ${outcome} -${p.size} @ ${p.curPrice}`);
+    }
+  }
+  console.log(lines.length ? `${prefix}\n${lines.join("\n")}` : `${prefix} | (no changes)`);
 }
 
 const POSITIONS_PAGE_SIZE = 500;
@@ -92,10 +117,10 @@ export function runPositionPolling(
         const pprev = prev[user];
         if (!pprev) {
           prev[user] = curr;
-          logPositions(user, curr, "INIT");
+          logPositionsAll(user, curr);
           continue;
         }
-        logPositions(user, curr, "POS");
+        logPositionChanges(user, curr, pprev);
         for (const [asset, c] of Object.entries(curr)) {
           const s = pprev[asset]?.size ?? 0;
           const delta = c.size - s;

@@ -17,7 +17,7 @@ revert_trade = true
 size_multiplier = 1.0
 
 # Polling interval (sec) when using multiple targets
-poll_interval_sec = 30
+poll_interval_sec = 10
 
 [exit]
 # Take profit at this % gain (0 = disabled)
