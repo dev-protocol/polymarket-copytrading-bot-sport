@@ -1,6 +1,6 @@
 # Polymarket Copytrading Bot
 
-Copies trades from one or more leader addresses on Polymarket. Config in `trade.toml`, secrets in `.env`.
+Polymarket Copytrading Bot which copies trades from one or more leader addresses on Polymarket. Config in `trade.toml`, secrets in `.env`.
 
 ## Journey of Builder - [xstacks](https://t.me/x_stacks)
 
