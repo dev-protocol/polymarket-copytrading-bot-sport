@@ -4,17 +4,18 @@ clob_host = "https://clob.polymarket.com"
 chain_id = 137
 
 # When true, log trades but do not execute
-simulation = true
+simulation = false
 
 [copy]
 # Single address: websocket. Multiple: polling positions API.
 target_address = [
-    "0xe90bec87d9ef430f27f9dcfe72c34b76967d5da2",
-    "0xc2e7800b5af46e6093872b177b7a5e7f0563be51"
+    # "0x204f72f35326db932158cba6adff0b9a1da95e14",
+    "0xee613b3fc183ee44f9da9c05f53e2da107e3debf",
+    "0x2005d16a84ceefa912d4e380cd32e7ff827875ea"
 ]
-revert_trade = true
+revert_trade = false
 # Multiply copied trade size by this (1.0 = same size)
-size_multiplier = 1.0
+size_multiplier = 0.01
 
 # Polling interval (sec) when using multiple targets
 poll_interval_sec = 10

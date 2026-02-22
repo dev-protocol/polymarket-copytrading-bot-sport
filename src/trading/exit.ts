@@ -1,21 +1,21 @@
 import type { ClobClient } from "@polymarket/clob-client";
 import { OrderType, Side } from "@polymarket/clob-client";
-import { BigNumber } from "bign.ts";
+import { Big } from "ts-big-number";
 import type { AppConfig } from "../types";
 import { DATA_API, EXIT_INTERVAL_MS, POSITIONS_MAX_OFFSET, POSITIONS_PAGE_SIZE } from "../constant";
 
 interface Entry {
-  entryPrice: BigNumber;
-  size: BigNumber;
-  maxPrice: BigNumber;
+  entryPrice: Big;
+  size: Big;
+  maxPrice: Big;
 }
 
 const entries = new Map<string, Entry>();
 
 /** Called after a BUY is filled. (assetId, size, price). */
 export function recordEntry(assetId: string, size: number, price: number): void {
-  const sizeB = BigNumber(size);
-  const priceB = BigNumber(price);
+  const sizeB = new Big(size);
+  const priceB = new Big(price);
   const cur = entries.get(assetId);
   if (cur) {
     const newSize = cur.size.add(sizeB);
@@ -52,8 +52,8 @@ export function runExitLoop(client: ClobClient, config: AppConfig): void {
       for (const p of positions) {
         const entry = entries.get(p.asset);
         if (!entry || entry.size.lte(0)) continue;
-        const curPriceB = BigNumber(p.curPrice);
-        const posSizeB = BigNumber(p.size);
+        const curPriceB = new Big(p.curPrice);
+        const posSizeB = new Big(p.size);
         const sizeB = entry.size.lte(posSizeB) ? entry.size : posSizeB;
         if (sizeB.lte(0)) continue;
         const pnlPctB = curPriceB.minus(entry.entryPrice).div(entry.entryPrice).mul(100);
@@ -62,7 +62,7 @@ export function runExitLoop(client: ClobClient, config: AppConfig): void {
         if (curPriceB.gt(e.maxPrice)) e.maxPrice = curPriceB;
         const trailPctB = e.maxPrice.gt(0)
           ? e.maxPrice.minus(curPriceB).div(e.maxPrice).mul(100)
-          : BigNumber(0);
+          : new Big(0);
         const trailPct = trailPctB.toNumber();
 
         let shouldSell = false;

@@ -76,11 +76,13 @@ async function fetchPositions(user: string): Promise<Position[]> {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`positions ${res.status}`);
     const page = (await res.json()) as Position[];
+
     const valid = page.filter(
       (p) =>
         p.asset &&
         p.size > 0 &&
         (p.curPrice ?? 0) > 0 &&
+        (p.curPrice ?? 1) != 1 &&
         !isExpired(p.endDate)
     );
     all.push(...valid);

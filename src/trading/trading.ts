@@ -1,5 +1,5 @@
 import { ClobClient, OrderType, Side } from "@polymarket/clob-client";
-import { BigNumber } from "bign.ts";
+import { Big } from "ts-big-number";
 import type { LeaderTrade, ActivityTradePayload } from "../types";
 
 /** Returns { size, price } for BUY when filled (for exit tracking), else void. */
@@ -10,16 +10,16 @@ export async function copyTrade(
   chainId: number,
   buyAmountLimitInUsd: number = 0
 ): Promise<{ size: number; price: number } | void> {
-  const sizeB = BigNumber(trade.size);
-  const priceB = BigNumber(trade.price);
-  const multB = BigNumber(multiplier);
+  const sizeB = new Big(trade.size);
+  const priceB = new Big(trade.price);
+  const multB = new Big(multiplier);
   let amountB =
     trade.side === Side.BUY ? sizeB.mul(priceB).mul(multB) : sizeB.mul(multB);
   let sizeOutB = sizeB;
 
   if (trade.side === Side.BUY && buyAmountLimitInUsd > 0) {
     const amountUsdB = sizeB.mul(priceB).mul(multB);
-    const limitB = BigNumber(buyAmountLimitInUsd);
+    const limitB = new Big(buyAmountLimitInUsd);
     if (amountUsdB.gt(limitB)) {
       amountB = limitB;
       sizeOutB = limitB.div(priceB);

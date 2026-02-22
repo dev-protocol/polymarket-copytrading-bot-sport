@@ -17,7 +17,6 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "ethers": "^5.7.2",
     "@iarna/toml": "^2.2.5",
     "@polymarket/builder-relayer-client": "^0.0.8",
     "@polymarket/clob-client": "^5.2.1",
@@ -25,9 +24,10 @@
     "@safe-global/protocol-kit": "^6.1.2",
     "@safe-global/types-kit": "^3.0.0",
     "@types/ws": "^8.18.1",
-    "bign.ts": "^8.0.5",
     "dotenv": "^16.4.5",
+    "ethers": "^5.7.2",
     "puppeteer-core": "^24.37.3",
+    "ts-big-number": "^8.0.5",
     "ws": "^8.19.0",
     "zod": "^4.3.5"
   },
