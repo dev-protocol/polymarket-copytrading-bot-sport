@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx src/index.ts",
+    "dev": "concurrently \"npm run dev:bot\" \"npm run dev:ui\"",
     "log": "tsx src/index.ts > log.txt 2>&1",
-    "build": "tsc",
+    "build": "npm run build:ui && tsc",
+    "build:ui": "cd frontend && npm install && npm run build",
+    "dev:bot": "tsx src/index.ts",
+    "dev:ui": "cd frontend && npm run dev",
     "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "@types/dotenv": "^8.2.3",
     "@types/node": "^20.11.0",
     "ts-node": "^10.9.2",

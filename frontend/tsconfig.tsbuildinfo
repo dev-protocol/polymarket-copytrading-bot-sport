@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/api/client.ts","./src/components/Layout.tsx","./src/components/Sidebar.tsx","./src/features/dashboard/DashboardPage.tsx","./src/features/log/LogPage.tsx","./src/features/positions/PositionsPanel.tsx","./src/features/settings/SettingsPage.tsx","./src/types/state.ts"],"version":"5.6.3"}

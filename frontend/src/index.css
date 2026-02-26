@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-[#111] text-[#e0e0e0] antialiased;
+}
+
+/* Custom scrollbar for current dark theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1a1a1a;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+*::-webkit-scrollbar-corner {
+  background: #1a1a1a;
+}
+
+@keyframes deltaFlash {
+  0% { opacity: 1; filter: brightness(1.5); }
+  100% { opacity: 1; filter: brightness(1); }
+}

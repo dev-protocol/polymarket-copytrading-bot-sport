@@ -23,3 +23,8 @@
 
 - Fix Decimal Issue in Traded Share
 - Add Dump Dashboard / Setting 
+
+# Version 1.1.2
+
+- Update FrontEnd UI structure
+- Init Struct for Dashboard / Settings

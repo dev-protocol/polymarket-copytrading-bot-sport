@@ -6,8 +6,6 @@ import { Wallet } from "ethers";
 import type { AppConfig } from "../types";
 import { DEFAULT_CHAIN_ID, DEFAULT_HOST, DEFAULT_MULTIPLIER } from "../constant";
 
-
-
 function loadToml(): Partial<AppConfig> {
   const p = path.join(process.cwd(), "trade.toml");
   if (!fs.existsSync(p)) return {};
