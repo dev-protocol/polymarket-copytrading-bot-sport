@@ -1,4 +1,4 @@
-# Polymarket Copytrading Bot
+# Polymarket Copy trading Bot
 
 Polymarket Copytrading Bot which copies trades from one or more leader addresses on Polymarket. Config in `trade.toml`, secrets in `.env`.
 

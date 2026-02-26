@@ -18,3 +18,8 @@
 - Basic UI Implementation
 - - User Activity
 - - Holding Asset Track
+
+# Version 1.1.1
+
+- Fix Decimal Issue in Traded Share
+- Add Dump Dashboard / Setting 
