@@ -3,44 +3,33 @@ export interface CopyConfig {
   targetAddresses: string[];
   sizeMultiplier: number;
   pollIntervalSec: number;
-  /** When false, only copy BUYs (ignore leader sells) */
   revertTrade: boolean;
 }
 
 export interface FilterConfig {
-  /** Max USD per copied trade (0 = no limit) */
   buyAmountLimitInUsd: number;
-  /** Only copy if leader traded within last N sec (0 = no filter) */
   entryTradeSec: number;
-  /** Skip if market resolves within N sec (0 = no filter) */
   tradeSecFromResolve: number;
 }
 
 export interface ExitConfig {
-  /** Take profit at this % gain (0 = disabled) */
   takeProfit: number;
-  /** Stop loss at this % loss (0 = disabled) */
   stopLoss: number;
-  /** Trailing stop at this % (0 = disabled) */
   trailingStop: number;
 }
 
 export interface UiConfig {
-  /** Seconds to keep positions with balance changes at top (0 = default 10) */
   deltaHighlightSec: number;
-  /** Seconds for delta +/- animation (0 = default 2) */
   deltaAnimationSec: number;
 }
 
 export interface AppConfig {
   clobHost: string;
   chainId: number;
-  /** Web UI port (env PORT overrides) */
   port: number;
   simulationMode: boolean;
   walletPrivateKey: string;
   proxyWalletAddress: string;
-  /** Resolved: proxy or EOA address for positions/exit */
   walletAddress: string;
   signatureType: number;
   copy: CopyConfig;
@@ -61,7 +50,6 @@ export interface LeaderTrade {
   eventSlug?: string;
   outcome?: string;
   title?: string;
-  /** Market end/resolution time (ISO); used for trade_sec_from_resolve filter */
   endDate?: string;
 }
 

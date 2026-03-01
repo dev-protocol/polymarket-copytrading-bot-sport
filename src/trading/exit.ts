@@ -12,7 +12,6 @@ interface Entry {
 
 const entries = new Map<string, Entry>();
 
-/** Called after a BUY is filled. (assetId, size, price). */
 export function recordEntry(assetId: string, size: number, price: number): void {
   const sizeB = new Big(size);
   const priceB = new Big(price);

@@ -34,6 +34,10 @@ git clone https://github.com/dev-protocol/polymarket-copytrading-bot-sport.git
 cd polymarket-copytrading-bot-sport
 npm install
 # Edit .env: WALLET_PRIVATE_KEY, PROXY_WALLET_ADDRESS (if Magic), SIGNATURE_TYPE
+cd frontend
+npm install
+# Install for UI
+cd ..
 npm run dev
 ```
 

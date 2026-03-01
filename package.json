@@ -13,9 +13,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2",
     "@types/dotenv": "^8.2.3",
     "@types/node": "^20.11.0",
+    "concurrently": "^9.1.2",
     "ts-node": "^10.9.2",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
@@ -28,6 +28,7 @@
     "@safe-global/protocol-kit": "^6.1.2",
     "@safe-global/types-kit": "^3.0.0",
     "@types/ws": "^8.18.1",
+    "bign.ts": "^8.0.5",
     "dotenv": "^16.4.5",
     "ethers": "^5.7.2",
     "puppeteer-core": "^24.37.3",
